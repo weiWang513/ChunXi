@@ -11,8 +11,8 @@ let config = {
         secret: 'me', // 默认
     },
     mongodbSecret: { // mongodb用户和密码
-        user: '',
-        pass: '',
+        user: 'admin',
+        pass: 'admin123',
     },
     admin: { // 后台初始化的用户名密码
         user: 'admin',

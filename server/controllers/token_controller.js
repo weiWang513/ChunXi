@@ -27,6 +27,7 @@ export async function initUser() {
 export async function login(ctx) {
     const username = ctx.request.body.username;
     const password = ctx.request.body.password;
+    console.log(ctx, 'ctx')
     let user = await User.findOne({
         username,
     }).exec();
@@ -38,10 +39,14 @@ export async function login(ctx) {
                 exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60, // 1 hours
             }, config.jwt.secret);
             ctx.body = {
-                success: true,
-                uid: user._id,
-                name: user.name,
-                token: token,
+                code: 0,
+                data: {
+                    success: true,
+                    uid: user._id,
+                    name: user.name,
+                    token: token,
+                },
+                msg: ''
             };
         } else {
             ctx.throw(401, '密码错误');
