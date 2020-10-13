@@ -29,7 +29,7 @@ onerror(app);
 
 // api/router
 app.use(api());
-
+// test
 // app.use(serve('./client/static'));
 
 // 创建渲染器，开启组件缓存
